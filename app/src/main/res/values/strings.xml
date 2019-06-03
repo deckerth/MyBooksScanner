@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">MyBooks Scanner</string>
+    <string name="action_settings">Settings</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="title_activity_main">MyBooks Scanner</string>
+    <string name="read_barcode">Read Barcode</string>
+    <string name="auto_focus">Auto Focus</string>
+    <string name="use_flash">Use Flash</string>
+    <string name="barcode_success">Barcode read successfully</string>
+    <string name="barcode_failure">No barcode captured</string>
+    <string name="duplicate_barcode">Barcode already scanned</string>
+    <string name="barcode_error">"Error reading barcode: %1$s"</string>
+    <string name="tab_to_capture">"Tap to capture. Pinch/Stretch to zoom"</string>
+
+    <!-- Strings related to Settings -->
+
+    <!--  General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_description_lookup_title">Lookup book titles from the Open Computer Library Center</string>
+    <string name="pref_title_lookup_title">Lookup book titles</string>
+
+    <string name="pref_description_permanent_scan">Automatically return to scan mode after each successful barcode scan</string>
+    <string name="pref_title_permanent_scan">Stay in scan mode</string>
+
+    <!-- Scanner settings -->
+    <string name="pref_header_scanner">Barcode scanner</string>
+    <string name="pref_automatic_scan_title">Automatic barcode detection</string>
+    <string name="pref_automatic_scan_description">Use manual detection if the book has multiple barcodes</string>
+    <string name="title_activity_export_files_list_actitity">Saved book lists</string>
+    <string name="action_export_files">Saved lists</string>
+    <string name="select_all">Select all</string>
+    <string name="select_export_files">Select files to delete</string>
+    <string name="action_save_scanned_books">Save</string>
+    <string name="file_saved"><![CDATA[Saved asr: &]]></string>
+</resources>

@@ -1,0 +1,22 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="use_flash"
+        android:summary=""
+        android:title="@string/use_flash" />
+
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="auto_focus"
+        android:summary=""
+        android:title="@string/auto_focus" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="automatic_scan"
+        android:summary="@string/pref_automatic_scan_description"
+        android:title="@string/pref_automatic_scan_title" />
+
+</PreferenceScreen>

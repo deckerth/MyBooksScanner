@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="lookup_titles"
+        android:summary="@string/pref_description_lookup_title"
+        android:title="@string/pref_title_lookup_title" />
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="permanent_scan"
+        android:summary="@string/pref_description_permanent_scan"
+        android:title="@string/pref_title_permanent_scan" />
+
+</PreferenceScreen>

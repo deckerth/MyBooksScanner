@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Meine Bücher - Scanner</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="ok">OK</string>
+    <string name="permission_camera_rationale">Die App benötigt die Erlaubnis die Kamera benutzen zu dürfen.</string>
+    <string name="no_camera_permission">Die App kann ohne Kameraberechtigung nicht genutzt werden. Sie wird nun beendet.</string>
+    <string name="title_activity_main">Meine Bücher - Scanner</string>
+    <string name="read_barcode">Strichcode einscannen</string>
+    <string name="auto_focus">Autofokus</string>
+    <string name="use_flash">Blitz</string>
+    <string name="barcode_success">Der Strichcode wurde erfolgreich eingescannt</string>
+    <string name="barcode_failure">Kein Strichcode erkannt</string>
+    <string name="barcode_error">"Fehler beim Einscannen: %1$s"</string>
+    <string name="tab_to_capture">"Antippen zum Scannen oder zoomen"</string>
+    <string name="duplicate_barcode">Der Strichcode wurde bereits erfasst</string>
+
+    <!-- Strings related to Settings -->
+
+    <!--  General settings -->
+    <string name="pref_header_general">Allgemein</string>
+
+    <string name="pref_description_lookup_title">Buchtitel über das Open Computer Library Center ermitteln</string>
+    <string name="pref_title_lookup_title">Buchtitel ermitteln</string>
+
+    <string name="pref_description_permanent_scan">Nach jedem eingescannten Titel wieder in den Scanmodus zurückkehren</string>
+    <string name="pref_title_permanent_scan">Permanentes Scannen</string>
+
+    <!-- Scanner settings -->
+    <string name="pref_header_scanner">Scanner</string>
+    <string name="pref_automatic_scan_title">Automatische Strichcodeerkennung</string>
+    <string name="pref_automatic_scan_description">Nutzen Sie die manuelle Erkennung falls mehrere Strichcodes vorhanden sind</string>
+
+    <string name="title_activity_export_files_list_actitity">Bücherlisten</string>
+    <string name="action_export_files">Gespeicherte Listen</string>
+    <string name="select_all">Alle auswählen</string>
+    <string name="select_export_files">Wählen Sie die zu löschenden Listen aus</string>
+    <string name="action_save_scanned_books">Speichern</string>
+    <string name="file_saved"><![CDATA[Gespeichert unter: &]]></string>
+
+</resources>

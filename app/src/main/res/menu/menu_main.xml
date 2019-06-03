@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.thomas.mybooksscanner.ui.views.MainActivity">
+
+    <item
+        android:id="@+id/action_save_scanned_books"
+        android:orderInCategory="100"
+        android:title="@string/action_save_scanned_books"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_export_files"
+        android:orderInCategory="100"
+        android:title="@string/action_export_files"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>
