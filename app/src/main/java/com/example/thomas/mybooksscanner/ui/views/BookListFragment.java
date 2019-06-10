@@ -11,12 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.thomas.mybooksscanner.DataRepository;
+import com.example.thomas.mybooksscanner.ExportFileContent;
 import com.example.thomas.mybooksscanner.ExportFilesDirectory;
 import com.example.thomas.mybooksscanner.R;
 import com.example.thomas.mybooksscanner.databinding.ListFragmentBinding;
 import com.example.thomas.mybooksscanner.model.BookEntity;
 import com.example.thomas.mybooksscanner.ui.adapters.BookAdapter;
 import com.example.thomas.mybooksscanner.viewmodel.BookListViewModel;
+import com.example.thomas.mybooksscanner.viewmodel.ExportFileContentViewModel;
 
 import java.io.File;
 import java.util.List;
@@ -55,22 +57,25 @@ public class BookListFragment extends Fragment {
         if (file != null) {
             // Create a new data repository with the content of the selected file.
             // This repository will later be accessed when the BookListViewModel is created
-            new DataRepository(file);
+            ExportFileContent.getInstance().LoadFile(file);
+            final ExportFileContentViewModel viewModel =
+                    ViewModelProviders.of(this).get(ExportFileContentViewModel.class);
+            subscribeUiForExportFileContent(viewModel);
+        } else {
+            final BookListViewModel viewModel =
+                    ViewModelProviders.of(this).get(BookListViewModel.class);
+
+            subscribeUiForBookList(viewModel);
         }
-
-        final BookListViewModel viewModel =
-                ViewModelProviders.of(this).get(BookListViewModel.class);
-
-        subscribeUi(viewModel);
     }
 
-    private void subscribeUi(BookListViewModel viewModel) {
+    private void subscribeUiForBookList(BookListViewModel viewModel) {
         // Update the list when the data changes
         viewModel.getBooks().observe(this, new Observer<List<BookEntity>>() {
             @Override
-            public void onChanged(@Nullable List<BookEntity> myBookings) {
-                if (myBookings != null) {
-                    mBookAdapter.setBookList(myBookings);
+            public void onChanged(@Nullable List<BookEntity> books) {
+                if (books != null) {
+                    mBookAdapter.setBookList(books);
                 }
                 // espresso does not know how to wait for data binding's loop so we execute changes
                 // sync.
@@ -78,4 +83,20 @@ public class BookListFragment extends Fragment {
             }
         });
     }
+
+    private void subscribeUiForExportFileContent(ExportFileContentViewModel viewModel) {
+        // Update the list when the data changes
+        viewModel.getBooks().observe(this, new Observer<List<BookEntity>>() {
+            @Override
+            public void onChanged(@Nullable List<BookEntity> books) {
+                if (books != null) {
+                    mBookAdapter.setBookList(books);
+                }
+                // espresso does not know how to wait for data binding's loop so we execute changes
+                // sync.
+                mBinding.executePendingBindings();
+            }
+        });
+    }
+
 }

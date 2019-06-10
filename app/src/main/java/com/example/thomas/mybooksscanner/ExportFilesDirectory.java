@@ -18,16 +18,20 @@ public class ExportFilesDirectory {
 
     private MutableLiveData<List<ExportFileEntity>> mObservableFiles;
 
+    private Boolean mContentRead = Boolean.FALSE;
+
     private ExportFilesDirectory() {
         mObservableFiles = new MutableLiveData<>();
-        ReadDirectory();
     }
 
     public LiveData<List<ExportFileEntity>> getFiles() {
+        if (!mContentRead) ReadDirectory();
         return mObservableFiles;
     }
 
-    public void ReadDirectory() {
+    public void Invalidate() { mContentRead = Boolean.FALSE; }
+
+    private void ReadDirectory() {
         File dir = BasicApp.getContext().getFilesDir();
         FileFilter filter = new FileFilter() {
             @Override
@@ -45,6 +49,7 @@ public class ExportFilesDirectory {
         }
 
         mObservableFiles.setValue(list);
+        mContentRead = Boolean.TRUE;
     }
 
     public void selectAll(boolean isChecked) {

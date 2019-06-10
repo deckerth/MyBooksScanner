@@ -2,8 +2,12 @@ package com.example.thomas.mybooksscanner.ui.views;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -12,6 +16,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -19,7 +24,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.ShareActionProvider;
+import android.widget.ImageButton;
 
 import com.example.thomas.mybooksscanner.BasicApp;
 import com.example.thomas.mybooksscanner.DataRepository;
@@ -28,13 +33,12 @@ import com.example.thomas.mybooksscanner.R;
 import com.example.thomas.mybooksscanner.model.BookEntity;
 import com.example.thomas.mybooksscanner.service.ISBNQueryService;
 import com.example.thomas.mybooksscanner.service.Settings;
-import com.example.thomas.mybooksscanner.ui.adapters.BookAdapter;
 import com.example.thomas.mybooksscanner.viewmodel.BookListViewModel;
+import com.example.thomas.mybooksscanner.viewmodel.MainActivityViewModel;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.thomas.mybooksscanner.service.ISBNQueryService.QUERY_REQUEST_CODE;
@@ -42,7 +46,7 @@ import static com.example.thomas.mybooksscanner.service.ISBNQueryService.QUERY_R
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG = "BookListViewModel";
+    public static final String TAG = "MainActivity";
 
     // constants used to pass extra data in the intent
     public static final String FILENAME = "filename";
@@ -53,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Boolean mFileDisplayMode = Boolean.FALSE;
     private File mFile;
-
+    private Button mShare;
+    private ImageButton mDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,14 +72,26 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        if (mFileDisplayMode) getSupportActionBar().setTitle(filename);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(mFloatingButtonListener);
         fab.setVisibility(mFileDisplayMode ? View.INVISIBLE : View.VISIBLE);
 
-        Button share = (Button) findViewById(R.id.share_button);
-        share.setOnClickListener(mShareButtonListener);
+        mShare = (Button) findViewById(R.id.share_button);
+        mShare.setOnClickListener(mShareButtonListener);
+
+        mDelete = (ImageButton) findViewById(R.id.delete_button);
+        mDelete.setOnClickListener(mDeleteButtonListener);
+
+        final MainActivityViewModel viewModel =
+                ViewModelProviders.of(this).get(MainActivityViewModel.class);
+
+        subscribeUi(viewModel);
+
+        if (mFileDisplayMode) {
+            getSupportActionBar().setTitle(filename);
+            mDelete.setVisibility(View.GONE);
+        }
 
         // Add list fragment if this is first creation
         if (savedInstanceState == null) {
@@ -82,6 +99,62 @@ public class MainActivity extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, fragment, BookListFragment.TAG).commit();
+        }
+    }
+
+    /**
+     * Sets the image button to the given state and grays-out the icon.
+     *
+     * @param ctxt The context
+     * @param enabled The state of the button
+     * @param item The button item to modify
+     * @param iconResId The button's icon ID
+     */
+    public static void setImageButtonEnabled(Context ctxt, boolean enabled,
+                                             ImageButton item, int iconResId) {
+
+        item.setEnabled(enabled);
+        Drawable originalIcon = ctxt.getResources().getDrawable(iconResId);
+        Drawable icon = enabled ? originalIcon : convertDrawableToGrayScale(originalIcon);
+        item.setImageDrawable(icon);
+    }
+
+    /**
+     * Mutates and applies a filter that converts the given drawable to a Gray
+     * image. This method may be used to simulate the color of disable icons in
+     * Honeycomb's ActionBar.
+     *
+     * @return a mutated version of the given drawable with a color filter applied.
+     */
+    public static Drawable convertDrawableToGrayScale(Drawable drawable) {
+        if (drawable == null)
+            return null;
+
+        Drawable res = drawable.mutate();
+        res.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN);
+        return res;
+    }
+    private void subscribeUi(MainActivityViewModel viewModel) {
+        // Update the list when the data changes
+        if (mFileDisplayMode)  {
+            viewModel.getExportFileFilled().observe(this, new Observer<Boolean>() {
+                @Override
+                public void onChanged(@Nullable Boolean booksExist) {
+                    if (booksExist != null) {
+                        mShare.setEnabled(booksExist);
+                    }
+                }
+            });
+        } else {
+            viewModel.getBooksExist().observe(this, new Observer<Boolean>() {
+                @Override
+                public void onChanged(@Nullable Boolean booksExist) {
+                    if (booksExist != null) {
+                        mShare.setEnabled(booksExist);
+                        mDelete.setVisibility(booksExist ? View.VISIBLE : View.GONE);
+                    }
+                }
+            });
         }
     }
 
@@ -125,6 +198,29 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private Button.OnClickListener mDeleteButtonListener = v -> {
+        if (DataRepository.getInstance().getBooks().getValue().size() > 0) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(R.string.confirm_deletion_message)
+                    .setTitle(R.string.confirm_deletion_title);
+            // Add the buttons
+            builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked OK button
+                    DataRepository.getInstance().Clear();
+                }
+            });
+            builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User cancelled the dialog
+                }
+            });
+            // Create the AlertDialog
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+    };
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -153,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
             Uri uri = DataRepository.getInstance().exportBooksToXML(BasicApp.getContext());
             if ( uri != null) {
                 String message = BasicApp.getContext().getResources().getString(R.string.file_saved);
-                message.replace("&",uri.getLastPathSegment());
+                message = message.replace("&",uri.getLastPathSegment());
                 Snackbar.make(getWindow().getDecorView().getRootView(),message, Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }

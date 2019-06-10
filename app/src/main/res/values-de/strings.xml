@@ -2,6 +2,11 @@
     <string name="app_name">Meine Bücher - Scanner</string>
     <string name="action_settings">Einstellungen</string>
     <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="confirm_deletion_title">Liste löschen</string>
+    <string name="confirm_deletion_message">Möchten Sie die Liste löschen?</string>
     <string name="permission_camera_rationale">Die App benötigt die Erlaubnis die Kamera benutzen zu dürfen.</string>
     <string name="no_camera_permission">Die App kann ohne Kameraberechtigung nicht genutzt werden. Sie wird nun beendet.</string>
     <string name="title_activity_main">Meine Bücher - Scanner</string>

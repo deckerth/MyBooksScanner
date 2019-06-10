@@ -6,7 +6,7 @@
 -->
     <color name="colorPrimary">#4682B4</color>
     <color name="colorPrimaryDark">#4682B4</color> // steel lue
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#2196F3</color>
     <color name="colorCardBackground">#b0c4de</color> // light steel blue
     <color name="colorFileBackground">#F5F5F5</color> // light steel blue
 
