@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <data>
-            <variable name="export_file"
-                type = "com.example.thomas.mybooksscanner.model.ExportFile"/>
+            <variable
+                name="export_file"
+                type="com.deckerth.thomas.mybooksscanner.model.ExportFile"/>
         </data>
 
         <android.support.v7.widget.CardView
@@ -28,14 +29,13 @@
                     android:id="@+id/selected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="@={com.example.thomas.mybooksscanner.ui.value_converters.BooleanConverter.boolUnbox(export_file.selected)}"/>
+                    android:checked="@={com.deckerth.thomas.mybooksscanner.ui.value_converters.BooleanConverter.boolUnbox(export_file.selected)}"/>
 
                 <TextView
                     android:id="@+id/filename"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{export_file.name}" />
-                />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 

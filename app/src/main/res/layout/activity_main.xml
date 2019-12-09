@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.thomas.mybooksscanner.ui.views.MainActivity">
+    tools:context="com.deckerth.thomas.mybooksscanner.ui.views.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -29,7 +29,8 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="?android:attr/actionModeShareDrawable" />
+                android:background="?android:attr/actionModeShareDrawable"
+                tools:ignore="RtlHardcoded" />
 
             <ImageButton
                 android:id="@+id/delete_button"
@@ -38,7 +39,8 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:background="@drawable/ic_delete" />
+                android:background="@drawable/ic_delete"
+                tools:ignore="RtlHardcoded" />
 
         </android.support.v7.widget.Toolbar>
 

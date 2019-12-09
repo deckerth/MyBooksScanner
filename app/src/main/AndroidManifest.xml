@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.thomas.mybooksscanner">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.deckerth.thomas.mybooksscanner">
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -14,7 +15,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="UnusedAttribute">
+        <activity android:name=".ui.views.HelpBrowserActivity"/>
         <activity
             android:name=".ui.views.MainActivity"
             android:label="@string/app_name"
@@ -33,7 +37,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.example.thomas.mybooksscanner.fileprovider"
+            android:authorities="com.deckerth.thomas.mybooksscanner.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -45,9 +49,9 @@
             android:name=".ui.views.SettingsActivity"
             android:label="@string/action_settings" />
         <activity
-            android:name=".ui.views.ExportFilesListActitity"
+            android:name=".ui.views.ExportFilesListActivity"
             android:label="@string/title_activity_export_files_list_actitity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

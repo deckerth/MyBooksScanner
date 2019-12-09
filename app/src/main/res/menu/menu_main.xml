@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.thomas.mybooksscanner.ui.views.MainActivity">
+    tools:context="com.deckerth.thomas.mybooksscanner.ui.views.MainActivity">
 
     <item
         android:id="@+id/action_save_scanned_books"
@@ -20,4 +20,11 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="100"
+        android:title="@string/action_help"
+        app:showAsAction="never" />
+
 </menu>

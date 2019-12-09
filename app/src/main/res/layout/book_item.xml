@@ -5,7 +5,7 @@
 
     <data>
         <variable name="book"
-            type = "com.example.thomas.mybooksscanner.model.Book"/>
+            type = "com.deckerth.thomas.mybooksscanner.model.Book"/>
     </data>
 
     <android.support.v7.widget.CardView
@@ -30,14 +30,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{book.ISBN}" />
-            />
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{book.Title}" />
-            />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

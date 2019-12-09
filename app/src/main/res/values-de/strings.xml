@@ -2,20 +2,16 @@
     <string name="app_name">Meine Bücher - Scanner</string>
     <string name="action_settings">Einstellungen</string>
     <string name="ok">OK</string>
-    <string name="cancel">Abbrechen</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
     <string name="confirm_deletion_title">Liste löschen</string>
     <string name="confirm_deletion_message">Möchten Sie die Liste löschen?</string>
     <string name="permission_camera_rationale">Die App benötigt die Erlaubnis die Kamera benutzen zu dürfen.</string>
     <string name="no_camera_permission">Die App kann ohne Kameraberechtigung nicht genutzt werden. Sie wird nun beendet.</string>
-    <string name="title_activity_main">Meine Bücher - Scanner</string>
-    <string name="read_barcode">Strichcode einscannen</string>
+    <string name="low_storage_error">Die Gesichtserkennung kann nicht geladen werden.</string>
     <string name="auto_focus">Autofokus</string>
     <string name="use_flash">Blitz</string>
-    <string name="barcode_success">Der Strichcode wurde erfolgreich eingescannt</string>
     <string name="barcode_failure">Kein Strichcode erkannt</string>
-    <string name="barcode_error">"Fehler beim Einscannen: %1$s"</string>
     <string name="tab_to_capture">"Antippen zum Scannen oder zoomen"</string>
     <string name="duplicate_barcode">Der Strichcode wurde bereits erfasst</string>
 
@@ -41,5 +37,7 @@
     <string name="select_export_files">Wählen Sie die zu löschenden Listen aus</string>
     <string name="action_save_scanned_books">Speichern</string>
     <string name="file_saved"><![CDATA[Gespeichert unter: &]]></string>
+    <string name="help_url">https://deckerth.wixsite.com/meinebuecher/barcode-scanner</string>
+    <string name="action_help">Hilfe</string>
 
 </resources>

@@ -7,16 +7,16 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
-    <com.example.thomas.mybooksscanner.ui.camera.CameraSourcePreview
+    <com.deckerth.thomas.mybooksscanner.ui.camera.CameraSourcePreview
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.thomas.mybooksscanner.ui.camera.GraphicOverlay
+        <com.deckerth.thomas.mybooksscanner.ui.camera.GraphicOverlay
             android:id="@+id/graphicOverlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.example.thomas.mybooksscanner.ui.camera.CameraSourcePreview>
+    </com.deckerth.thomas.mybooksscanner.ui.camera.CameraSourcePreview>
 
 </LinearLayout>

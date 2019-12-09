@@ -2,7 +2,6 @@
     <string name="app_name">MyBooks Scanner</string>
     <string name="action_settings">Settings</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="confirm_deletion_title">Delete list</string>
@@ -10,14 +9,10 @@
     <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
     <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
     <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
-    <string name="title_activity_main">MyBooks Scanner</string>
-    <string name="read_barcode">Read Barcode</string>
     <string name="auto_focus">Auto Focus</string>
     <string name="use_flash">Use Flash</string>
-    <string name="barcode_success">Barcode read successfully</string>
     <string name="barcode_failure">No barcode captured</string>
     <string name="duplicate_barcode">Barcode already scanned</string>
-    <string name="barcode_error">"Error reading barcode: %1$s"</string>
     <string name="tab_to_capture">"Tap to capture. Pinch/Stretch to zoom"</string>
 
     <!-- Strings related to Settings -->
@@ -41,4 +36,6 @@
     <string name="select_export_files">Select files to delete</string>
     <string name="action_save_scanned_books">Save</string>
     <string name="file_saved"><![CDATA[Saved as: &]]></string>
+    <string name="help_url">https://deckerth.wixsite.com/mybooks/barcode-scanner</string>
+    <string name="action_help">Help</string>
 </resources>

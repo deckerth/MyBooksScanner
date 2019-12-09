@@ -3,12 +3,12 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="com.example.thomas.mybooksscanner.ui.views.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="com.deckerth.thomas.mybooksscanner.ui.views.SettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_settings_applications_black_24dp"
         android:title="@string/pref_header_general" />
 
     <header
-        android:fragment="com.example.thomas.mybooksscanner.ui.views.SettingsActivity$ScannerPreferenceFragment"
+        android:fragment="com.deckerth.thomas.mybooksscanner.ui.views.SettingsActivity$ScannerPreferenceFragment"
         android:icon="@drawable/ic_camera_black_24dp"
         android:title="@string/pref_header_scanner" />
 
