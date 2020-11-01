@@ -1,6 +1,6 @@
 package com.deckerth.thomas.mybooksscanner.ui.value_converters;
 
-import android.databinding.InverseMethod;
+import androidx.databinding.InverseMethod;
 
 public class BooleanConverter {
 

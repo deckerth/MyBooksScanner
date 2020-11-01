@@ -1,12 +1,11 @@
 package com.deckerth.thomas.mybooksscanner.ui.views;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +14,11 @@ import com.deckerth.thomas.mybooksscanner.ExportFileContent;
 import com.deckerth.thomas.mybooksscanner.ExportFilesDirectory;
 import com.deckerth.thomas.mybooksscanner.R;
 import com.deckerth.thomas.mybooksscanner.databinding.ListFragmentBinding;
-import com.deckerth.thomas.mybooksscanner.model.BookEntity;
 import com.deckerth.thomas.mybooksscanner.ui.adapters.BookAdapter;
 import com.deckerth.thomas.mybooksscanner.viewmodel.BookListViewModel;
 import com.deckerth.thomas.mybooksscanner.viewmodel.ExportFileContentViewModel;
 
 import java.io.File;
-import java.util.List;
 import java.util.Objects;
 
 /**

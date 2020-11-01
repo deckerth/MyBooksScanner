@@ -1,12 +1,11 @@
 package com.deckerth.thomas.mybooksscanner.ui.views;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.databinding.DataBindingUtil;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +14,8 @@ import android.view.ViewGroup;
 import com.deckerth.thomas.mybooksscanner.BasicApp;
 import com.deckerth.thomas.mybooksscanner.R;
 import com.deckerth.thomas.mybooksscanner.databinding.ExportFilesFragmentBinding;
-import com.deckerth.thomas.mybooksscanner.model.ExportFileEntity;
 import com.deckerth.thomas.mybooksscanner.ui.adapters.ExportFileAdapter;
 import com.deckerth.thomas.mybooksscanner.viewmodel.FilesListViewModel;
-
-import java.util.List;
 
 /**
  * A placeholder fragment containing a simple view.

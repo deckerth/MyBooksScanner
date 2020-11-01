@@ -4,7 +4,7 @@ package com.deckerth.thomas.mybooksscanner.service;
 import android.app.IntentService;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import org.w3c.dom.Document;

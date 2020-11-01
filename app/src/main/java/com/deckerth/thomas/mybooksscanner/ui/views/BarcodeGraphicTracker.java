@@ -2,7 +2,7 @@ package com.deckerth.thomas.mybooksscanner.ui.views;
 
 
 import android.content.Context;
-import android.support.annotation.UiThread;
+import androidx.annotation.UiThread;
 
 import com.deckerth.thomas.mybooksscanner.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.Detector;
